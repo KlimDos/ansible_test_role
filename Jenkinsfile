@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Yum: Updates') {
             steps {
-                sh "sudo ll $WORKSPACE/repo/$BUILD_SCRIPTS/"
+                sh "sudo ls -la $WORKSPACE/repo/$BUILD_SCRIPTS/"
             }
         }
     }
