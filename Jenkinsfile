@@ -21,7 +21,7 @@ pipeline {
         stage('Post to Sonar') {
             steps {
                 withSonarQubeEnv('SonarAWS-CT-CMH-backend') {
-                    sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner"
+                    sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner -Dsonar.host.url=http://sonarqube.aws.wiley.com"
                 }
             }
         }
