@@ -22,7 +22,14 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarAWS-CT-CMH-backend') {
                     sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner \
-                    -Dsonar.host.url=http://sonarqube.aws.wiley.com"
+                    -Dsonar.projectKey=do-cmh-sq-test \
+                    -Dsonar.projectName=do-cmh-test \
+                    -Dsonar.host.url=http://sonarqube.aws.wiley.com \
+                    -Dsonar.login=889c27faa6834fc18f87e11faba276a2c48dcac1 \
+                    -Dsonar.projectBaseDir=$WORKSPACE/repo/$BUILD_SCRIPTS/ \
+                    -Dsonar.exclusions=\"**.xml\" \
+                    -Dsonar.sources=do-cmh"
+                    "
                 }
             }
         }
