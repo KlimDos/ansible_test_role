@@ -21,12 +21,7 @@ pipeline {
         stage('Post to Sonar') {
             steps {
                 withSonarQubeEnv('SonarAWS-CT-CMH-backend') {
-           /*         sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner \
-                        -Dsonar.projectKey=do-cmh-sq-test \
-                        -Dsonar.projectName=do-cmh-test \
-                        -Dsonar.projectBaseDir=$WORKSPACE/repo/ \
-                        -Dsonar.exclusions=\"**.xml\" \
-                        -Dsonar.sources=$BUILD_SCRIPTS" */
+                    sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner"
                 }
             }
         }
