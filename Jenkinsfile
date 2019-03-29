@@ -3,6 +3,10 @@ pipeline {
         BUILD_SCRIPTS_GIT = "https://github.com/KlimDos/ansible_test_role.git"
         BUILD_SCRIPTS = 'mypipeline'
         BUILD_HOME = '/home/aalimov/tmp_pipeline_ws'
+        http_proxy = "http://proxy-dev.aws.wiley.com:8080"
+        https_proxy = "http://proxy-dev.aws.wiley.com:8080"
+        NO_PROXY= "169.254.169.254,wiley.com"
+
     }
     agent any
     stages {
