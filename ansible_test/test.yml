@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - name: Setup cron job
-  #cron:
+  # cron:
   #  name: "Run CW Monitor"
   #  minute: "*/5"
   #  job: "/opt/software/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail"
@@ -11,7 +11,7 @@
     when: srv_name != 'alfresco-one' and srv_name != 'solr'
 
   - name: Setup cron job
-    #cron:
+    # cron:
     #  name: "Run CW Monitor"
     #  minute: "*/5"
     #  job: "/opt/software/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-space-util --disk-path=/opt/software --disk-path=/opt/logs"
