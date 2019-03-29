@@ -17,7 +17,7 @@
     #  job: "/opt/software/aws-scripts-mon/mon-put-instance-data.pl --mem-util --mem-used --mem-avail --disk-space-util --disk-path=/opt/software --disk-path=/opt/logs"
     debug:
       msg: "condition #2"
-    when: srv_name == 'alfresco-one' or srv_name == 'solr'
+    when: srv_name = 'alfresco-one') or srv_name == 'solr'
 
     #to test run
     #ansible-playbook -c local -i 127.0.0.1, test.yml -e "init=true app_ver=1.0.3 build=release srv_name=alfresco srv_user=wpadata env=wperf prj_name=wpa cloud=nonprod"
