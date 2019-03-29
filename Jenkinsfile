@@ -27,7 +27,6 @@ pipeline {
                     -Dsonar.host.url=http://sonarqube.aws.wiley.com \
                     -Dsonar.login=889c27faa6834fc18f87e11faba276a2c48dcac1 \
                     -Dsonar.projectBaseDir=$WORKSPACE/repo/$BUILD_SCRIPTS/ \
-                    -Dsonar.exclusions=\"**.xml\" \
                     -Dsonar.sources=do-cmh"
                     "
                 }
