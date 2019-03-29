@@ -10,7 +10,7 @@
       msg: "condition #1"
     when: srv_name != 'alfresco-one' and srv_name != 'solr'
 
-  - name: Setup cron job
+  name: Setup cron job
     # cron:
     #  name: "Run CW Monitor"
     #  minute: "*/5"
