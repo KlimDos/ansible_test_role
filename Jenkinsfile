@@ -28,7 +28,8 @@ pipeline {
                 sh "virtualenv $WORKSPACE/ansible-lint && source ansible-lint/bin/activate && pip install ansible-lint"
                 withSonarQubeEnv('SonarAWS-CT-CMH-backend') 
                 {
-                    sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner -X -e \
+                    sh "source ansible-lint/bin/activate && \
+                    /opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner -X -e \
                         -Dsonar.projectKey=do-cmh-sq-test \
                         -Dsonar.projectName=do-cmh-test \
                         -Dsonar.host.url=http://sonarqube.aws.wiley.com \
