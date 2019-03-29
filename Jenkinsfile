@@ -26,7 +26,8 @@ pipeline {
                         -Dsonar.projectName=do-cmh-test \
                         -Dsonar.projectBaseDir=$WORKSPACE/repo/ \
                         -Dsonar.exclusions=\"**.xml\" \
-                        -Dsonar.sources=$BUILD_SCRIPTS" 
+                        -Dsonar.sources=$BUILD_SCRIPTS"
+                }
             }
         }
     }
