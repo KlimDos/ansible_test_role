@@ -36,8 +36,7 @@ pipeline {
                         -Dsonar.login=5e3a9f2e39f222bca65440c615ac3048e2e5a0d4 \
                         -Dsonar.projectBaseDir=$WORKSPACE/repo/$BUILD_SCRIPTS \
                         -Dsonar.sources=."
-                }
-                sh "deactivate"
+                }                
             }
         }
     }
