@@ -26,14 +26,15 @@ pipeline {
         stage('Post to Sonar') {
             steps {
                 sh "virtualenv $WORKSPACE/ansible-lint && source ansible-lint/bin/activate && pip install ansible-lint"
-                withSonarQubeEnv('SonarAWS-CT-CMH-backend') {
-                    sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner -X \
-                    -Dsonar.projectKey=do-cmh-sq-test \
-                    -Dsonar.projectName=do-cmh-test \
-                    -Dsonar.host.url=http://sonarqube.aws.wiley.com \
-                    -Dsonar.login=889c27faa6834fc18f87e11faba276a2c48dcac1 \
-                    -Dsonar.projectBaseDir=$WORKSPACE/repo/ \
-                    -Dsonar.sources=$BUILD_SCRIPTS"
+                withSonarQubeEnv('SonarAWS-CT-CMH-backend') 
+                {
+                    sh "/opt/software/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner/bin/sonar-scanner -X -e \
+                        -Dsonar.projectKey=do-cmh-sq-test \
+                        -Dsonar.projectName=do-cmh-test \
+                        -Dsonar.host.url=http://sonarqube.aws.wiley.com \
+                        -Dsonar.login=5e3a9f2e39f222bca65440c615ac3048e2e5a0d4 \
+                        -Dsonar.projectBaseDir=$WORKSPACE/repo/$BUILD_SCRIPTS \
+                        -Dsonar.sources=."
                 }
                 sh "deactivate"
             }
