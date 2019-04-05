@@ -1,0 +1,41 @@
+docker-slave aue1lsrdjenk004
+
+- CF provisioning
+do-cmh: 
+
+- ssh disable sudo password:
+visudo
+sshtest ALL=(ALL) NOPASSWD: ALL
+
+- Ansible basic configure
+ansible-playbook -i ansible_inventory deploy_tmp.yml -e "init=true app_ver=1.0.3 build=release srv_name=content-api srv_user=wpadata env=wperf prj_name=wpa cloud=nonprod"  -b
+
+- Ansible docker configure:
+ansible-playbook -i ansible_inventory deploy_docker.yml -b
+
+- Ansible install docker-compose:
+
+- Enable API:
+find / -name docker.service
+vi
+ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+ - Add user jenkins:
+ sudo useradd -m -d /var/lib/jenkins jenkins
+ - generate keys:
+su - jenkins
+ssh-keygen -t rsa -C "Jenkins agent key"
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/id_rsa
+
+ssh-keyscan 10.220.20.105 > ~/.ssh/known_hosts
+
+add jenkins to docker group:
+usermod -a -G docker jenkins
+
+ - add user to master jenkins 
+
+ 
+

@@ -1,0 +1,15 @@
+            "ansible-playbook -c local -i 127.0.0.1, deploy.yml -e \"",
+                                            " init=true",
+                                            " app_ver=",  {"Ref":"AppVersion" },
+                                            " build=",    {"Ref":"BuildType" },
+                                            " conf_ver=", {"Ref":"ConfVersion" },
+                                            " srv_name=", {"Ref":"ServiceName" },
+                                            " srv_user=", {"Ref":"ProjectName" },"data",
+                                            " env=",      {"Ref":"EnvName" },
+                                            " prj_name=", {"Ref":"ProjectName" },
+                                            " cloud=",    {"Fn::If": ["IsProd", "prod", "nonprod"]},
+                                            "\"\n",
+
+
+
+ansible-playbook -c local 127.0.0.1 -e "init=true app_ver=1.0.3 build=release srv_name=content-api srv_user=wpadata env=wperf prj_name=wpa cloud=nonprod" 
