@@ -13,3 +13,17 @@
 
 
 ansible-playbook -c local 127.0.0.1 -e "init=true app_ver=1.0.3 build=release srv_name=content-api srv_user=wpadata env=wperf prj_name=wpa cloud=nonprod" 
+
+
+ansible-playbook -i ansible_inventory, deploy.yml -e "init=true app_ver=1.0.3 build=release srv_name=content-api srv_user=wpadata env=wdev prj_name=wpa cloud=nonprod 
+
+ansible-playbook -i  "10.221.75.93" --role  "/Users/sasha/Desktop/work not for sync/git_projects/do-dpl/playbooks/roles/dynatrace" -e "cloud=nonprod"
+
+/Users/sasha/Desktop/work not for sync/git_projects/do-cmh/playbooks/roles
+
+ansible-playbook -i ansible_inventory deploy_tmp.yml -e "cloud=nonprod" -b --check
+
+
+ansible-galaxy install --roles-path /Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/ geerlingguy.apache
+
+ansible all -i ansible_inventory -m ping
