@@ -1,0 +1,11 @@
+[all]
+10.201.32.175
+10.201.32.177
+10.201.32.178
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=aalimov
+#ansible_ssh_pass=
+#ansible_ssh_private_key_file=/Users/sasha/Desktop/Home/keys/aalimov-sandbox.pem
+#ansible_ssh_private_key_file=/Users/sasha/Desktop/Work/keys/AWS-PROD-WILEY.PEM

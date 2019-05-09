@@ -27,3 +27,10 @@ ansible-playbook -i ansible_inventory deploy_tmp.yml -e "cloud=nonprod" -b --che
 ansible-galaxy install --roles-path /Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/ geerlingguy.apache
 
 ansible all -i ansible_inventory -m ping
+
+ansible-playbook -i ansible_inventory deploy_tmp.yml -e "cloud=nonprod prj_name=wpa env=wdev srv_user=wpadata srv_name=jenkins_worker init=true" -b --check
+
+ansible-playbook -i ansible_inventory deploy_tmp.yml -e "init=true app_ver=1.0.3 build=release srv_name=cmh-s3mount-poc-wdev srv_user=wpadata env=wdev prj_name=wpa cloud=nonprod"  -b
+
+echo 'foobar ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
+echo 'sshtest ALL=(ALL) NOPASSWD: ALL'| sudo EDITOR='tee -a' visudo

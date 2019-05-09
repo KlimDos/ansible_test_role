@@ -1,17 +1,17 @@
----
-- hosts: all
-  roles:
-    - {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/devmount'}
+#---
+#- hosts: all
+#  roles:
+#    - {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/dynatrace'}
 #  # - {role: 'apache', tags: 'apache'}
 
 #
 #ansible-playbook -i  ansible_inventory deploy_tmp.yml -e "cloud=nonprod" -b
-#---
-#- hosts: all
-  #roles:
-    #- {role: "/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/devmount"}
-    #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/os-basic'}
-    #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/users'}
-    #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/java'}
-    #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/s3sync'}
-    #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/tools'}
+---
+  - hosts: all
+    roles:
+      - {role: "/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/devmount"}
+      - {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/os-basic'}
+      - {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/users'}
+      - {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/java'}
+      #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/s3sync'}
+      #- {role: '/Users/sasha/Desktop/work_not_for_sync/git_projects/do-cmh/playbooks/roles/tools'}
